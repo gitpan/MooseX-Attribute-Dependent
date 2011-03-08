@@ -7,39 +7,38 @@
 #
 #   The (three-clause) BSD License
 #
-package MooseX::Attribute::Dependent::Meta::Role::Method::Accessor;
+package MooseX::Attribute::Dependent::Meta::Role::Class;
 BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::Method::Accessor::VERSION = '1.0.1';
+  $MooseX::Attribute::Dependent::Meta::Role::Class::VERSION = '1.0.1';
 }
+
 use strict;
 use warnings;
 use Moose::Role;
 
-override _inline_check_constraint => sub {
-    my ( $self, $val ) = @_;
-    my $code = super();
-    my $attr = $self->{attribute};
-    
-    return $code
-        if( !$attr->does('MooseX::Attribute::Dependent::Meta::Role::Attribute')
+override _inline_check_required_attr => sub {
+    my ($self, $attr, $idx) = @_;
+    return super() 
+        if(!$attr->does('MooseX::Attribute::Dependent::Meta::Role::Attribute')
             || !$attr->has_dependency
             || !$attr->init_arg);
     my @source;
     my $related = "'" . join("', '", @{$attr->dependency->parameters}) . "'";
+    push @source => 'if(exists $params->{' . $attr->init_arg . '}) {';
     push @source => $self->_inline_throw_error( '"' . quotemeta($attr->dependency->get_message) . '"' );
-    push @source => "unless(" . $attr->dependency->name . "->constraint->(\"" . quotemeta($attr->name) . "\", \$_[0], $related));";
-    
-    return join("\n", $code, @source);
+    push @source => "unless(" . $attr->dependency->name . "->constraint->(\"" . quotemeta($attr->init_arg) . "\", \$params, $related));";
+    push @source => '}';
+    return join("\n", @source, super());
 };
 
-1;
 
+1;
 __END__
 =pod
 
 =head1 NAME
 
-MooseX::Attribute::Dependent::Meta::Role::Method::Accessor
+MooseX::Attribute::Dependent::Meta::Role::Class
 
 =head1 VERSION
 

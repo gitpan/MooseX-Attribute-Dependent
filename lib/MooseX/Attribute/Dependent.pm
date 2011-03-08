@@ -1,7 +1,7 @@
 #
 # This file is part of MooseX-Attribute-Dependent
 #
-# This software is Copyright (c) 2010 by Moritz Onken.
+# This software is Copyright (c) 2011 by Moritz Onken.
 #
 # This is free software, licensed under:
 #
@@ -9,14 +9,13 @@
 #
 package MooseX::Attribute::Dependent;
 BEGIN {
-  $MooseX::Attribute::Dependent::VERSION = '1.0.0';
+  $MooseX::Attribute::Dependent::VERSION = '1.0.1';
 }
 # ABSTRACT: Restrict attributes based on values of other attributes
 use Moose ();
 use Moose::Exporter;
 use Moose::Util::MetaRole;
 use MooseX::Attribute::Dependency;
-use MooseX::Attribute::Dependent::Meta::Role::Method::Constructor;
 
 
 Moose::Exporter->setup_import_methods(
@@ -37,8 +36,11 @@ sub init_meta {
     Moose::Util::MetaRole::apply_metaroles(
         for             => $args{for_class},
         class_metaroles => {
-            constructor =>
-              ['MooseX::Attribute::Dependent::Meta::Role::Method::Constructor'],
+            (Moose->VERSION >= 1.9900
+                ? (class =>
+                    ['MooseX::Attribute::Dependent::Meta::Role::Class'])
+                : (constructor =>
+                    ['MooseX::Attribute::Dependent::Meta::Role::Method::Constructor'])),
             attribute => ['MooseX::Attribute::Dependent::Meta::Role::Attribute'],
         },
     );
@@ -58,7 +60,7 @@ MooseX::Attribute::Dependent - Restrict attributes based on values of other attr
 
 =head1 VERSION
 
-version 1.0.0
+version 1.0.1
 
 =head1 SYNOPSIS
 
@@ -165,7 +167,7 @@ Moritz Onken
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2010 by Moritz Onken.
+This software is Copyright (c) 2011 by Moritz Onken.
 
 This is free software, licensed under:
 

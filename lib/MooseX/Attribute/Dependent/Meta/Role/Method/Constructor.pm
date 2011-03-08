@@ -1,7 +1,7 @@
 #
 # This file is part of MooseX-Attribute-Dependent
 #
-# This software is Copyright (c) 2010 by Moritz Onken.
+# This software is Copyright (c) 2011 by Moritz Onken.
 #
 # This is free software, licensed under:
 #
@@ -9,7 +9,7 @@
 #
 package MooseX::Attribute::Dependent::Meta::Role::Method::Constructor;
 BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::Method::Constructor::VERSION = '1.0.0';
+  $MooseX::Attribute::Dependent::Meta::Role::Method::Constructor::VERSION = '1.0.1';
 }
 
 use strict;
@@ -49,7 +49,7 @@ MooseX::Attribute::Dependent::Meta::Role::Method::Constructor
 
 =head1 VERSION
 
-version 1.0.0
+version 1.0.1
 
 =head1 AUTHOR
 
@@ -57,7 +57,7 @@ Moritz Onken
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2010 by Moritz Onken.
+This software is Copyright (c) 2011 by Moritz Onken.
 
 This is free software, licensed under:
 

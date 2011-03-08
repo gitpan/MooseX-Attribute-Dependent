@@ -1,11 +1,11 @@
 
 
 This archive contains the distribution MooseX-Attribute-Dependent,
-version 1.0.0:
+version 1.0.1:
 
   Restrict attributes based on values of other attributes
 
-This software is Copyright (c) 2010 by Moritz Onken.
+This software is Copyright (c) 2011 by Moritz Onken.
 
 This is free software, licensed under:
 

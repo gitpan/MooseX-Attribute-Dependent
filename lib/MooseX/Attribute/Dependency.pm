@@ -1,7 +1,7 @@
 #
 # This file is part of MooseX-Attribute-Dependent
 #
-# This software is Copyright (c) 2010 by Moritz Onken.
+# This software is Copyright (c) 2011 by Moritz Onken.
 #
 # This is free software, licensed under:
 #
@@ -9,7 +9,7 @@
 #
 package MooseX::Attribute::Dependency;
 BEGIN {
-  $MooseX::Attribute::Dependency::VERSION = '1.0.0';
+  $MooseX::Attribute::Dependency::VERSION = '1.0.1';
 }
 use Moose;
 has [qw(parameters message constraint name)] => ( is => 'ro' );
@@ -37,7 +37,7 @@ __PACKAGE__->meta->make_immutable;
 
 package MooseX::Attribute::Dependencies;
 BEGIN {
-  $MooseX::Attribute::Dependencies::VERSION = '1.0.0';
+  $MooseX::Attribute::Dependencies::VERSION = '1.0.1';
 }
 use strict;
 use warnings;
@@ -90,7 +90,7 @@ MooseX::Attribute::Dependency
 
 =head1 VERSION
 
-version 1.0.0
+version 1.0.1
 
 =head1 AUTHOR
 
@@ -98,7 +98,7 @@ Moritz Onken
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2010 by Moritz Onken.
+This software is Copyright (c) 2011 by Moritz Onken.
 
 This is free software, licensed under:
 
