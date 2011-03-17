@@ -4,7 +4,7 @@
       "Moritz Onken"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110550",
+   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110580",
    "license" : [
       "bsd"
    ],
@@ -37,6 +37,8 @@
          "requires" : {
             "File::Find" : 0,
             "File::Temp" : 0,
+            "MyInterRole" : 0,
+            "MyRole" : 0,
             "Test::More" : "0.88",
             "Test::Most" : "0.23"
          }
@@ -45,31 +47,39 @@
    "provides" : {
       "MooseX::Attribute::Dependencies" : {
          "file" : "lib/MooseX/Attribute/Dependency.pm",
-         "version" : "v1.0.1"
+         "version" : "v1.1.0"
       },
       "MooseX::Attribute::Dependency" : {
          "file" : "lib/MooseX/Attribute/Dependency.pm",
-         "version" : "v1.0.1"
+         "version" : "v1.1.0"
       },
       "MooseX::Attribute::Dependent" : {
          "file" : "lib/MooseX/Attribute/Dependent.pm",
-         "version" : "v1.0.1"
+         "version" : "v1.1.0"
+      },
+      "MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass" : {
+         "file" : "lib/MooseX/Attribute/Dependent/Meta/Role/ApplicationToClass.pm",
+         "version" : "v1.1.0"
+      },
+      "MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole" : {
+         "file" : "lib/MooseX/Attribute/Dependent/Meta/Role/ApplicationToRole.pm",
+         "version" : "v1.1.0"
       },
       "MooseX::Attribute::Dependent::Meta::Role::Attribute" : {
          "file" : "lib/MooseX/Attribute/Dependent/Meta/Role/Attribute.pm",
-         "version" : "v1.0.1"
+         "version" : "v1.1.0"
       },
       "MooseX::Attribute::Dependent::Meta::Role::Class" : {
          "file" : "lib/MooseX/Attribute/Dependent/Meta/Role/Class.pm",
-         "version" : "v1.0.1"
+         "version" : "v1.1.0"
       },
       "MooseX::Attribute::Dependent::Meta::Role::Method::Accessor" : {
          "file" : "lib/MooseX/Attribute/Dependent/Meta/Role/Method/Accessor.pm",
-         "version" : "v1.0.1"
+         "version" : "v1.1.0"
       },
       "MooseX::Attribute::Dependent::Meta::Role::Method::Constructor" : {
          "file" : "lib/MooseX/Attribute/Dependent/Meta/Role/Method/Constructor.pm",
-         "version" : "v1.0.1"
+         "version" : "v1.1.0"
       }
    },
    "release_status" : "stable",
@@ -85,7 +95,7 @@
          "web" : "http://github.com/monken/p5-moosex-attribute-dependent"
       }
    },
-   "version" : "1.0.1",
+   "version" : "1.1.0",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -122,11 +132,6 @@
             "class" : "Dist::Zilla::Plugin::PodSyntaxTests",
             "name" : "@Filter/PodSyntaxTests",
             "version" : "4.200004"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::PortabilityTests",
-            "name" : "@Filter/PortabilityTests",
-            "version" : "1.101420"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReportVersions::Tiny",
@@ -249,29 +254,39 @@
             "version" : "0.01"
          },
          {
-            "class" : "Dist::Zilla::Plugin::UploadToCPAN",
-            "name" : "@Filter/UploadToCPAN",
-            "version" : "4.200004"
-         },
-         {
             "class" : "Dist::Zilla::Plugin::Git::Check",
-            "name" : "@Filter/Git/Check",
+            "name" : "@Filter/Git::Check",
             "version" : "1.110500"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
-            "name" : "@Filter/Git/Commit",
+            "name" : "@Filter/Git::Commit",
+            "version" : "1.110500"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Git::CommitBuild",
+            "name" : "@Filter/Git::CommitBuild",
             "version" : "1.110500"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
-            "name" : "@Filter/Git/Tag",
+            "name" : "@Filter/TagMaster",
+            "version" : "1.110500"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Git::Tag",
+            "name" : "@Filter/TagRelease",
             "version" : "1.110500"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
-            "name" : "@Filter/Git/Push",
+            "name" : "@Filter/Git::Push",
             "version" : "1.110500"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::UploadToCPAN",
+            "name" : "@Filter/UploadToCPAN",
+            "version" : "4.200004"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",

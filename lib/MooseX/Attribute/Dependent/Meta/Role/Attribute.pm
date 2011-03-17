@@ -9,7 +9,7 @@
 #
 package MooseX::Attribute::Dependent::Meta::Role::Attribute;
 BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::Attribute::VERSION = '1.0.1';
+  $MooseX::Attribute::Dependent::Meta::Role::Attribute::VERSION = '1.1.0';
 }
 use strict;
 use warnings;
@@ -17,6 +17,7 @@ use Moose::Role;
 
 has dependency => ( predicate => 'has_dependency', is => 'ro' );
 
+sub initialize_instance_slot {}
 before initialize_instance_slot => sub {
     my ( $self, $meta_instance, $instance, $params ) = @_;
     return
@@ -27,8 +28,10 @@ before initialize_instance_slot => sub {
         $dep->constraint->( $self->init_arg, $params, @{ $dep->parameters } ) );
 };
 
-override accessor_metaclass => sub { 
-    my $class = super();
+sub accessor_metaclass { 'Moose::Meta::Method::Accessor' }
+around accessor_metaclass => sub { 
+    my ($orig) = (shift);
+    my $class = shift->$orig(@_);
     return Moose::Meta::Class->create_anon_class(
         superclasses => [$class],
         roles => ['MooseX::Attribute::Dependent::Meta::Role::Method::Accessor'],
@@ -37,9 +40,11 @@ override accessor_metaclass => sub {
     
 } if Moose->VERSION < 1.9900;
 
-override _inline_check_required => sub {
+sub _inline_check_required {}
+around _inline_check_required => sub {
+    my $orig = shift;
     my $attr = shift;
-    my @code = super();
+    my @code = $attr->$orig(@_);
     return @code
       if ( !$attr->does('MooseX::Attribute::Dependent::Meta::Role::Attribute')
         || !$attr->has_dependency
@@ -59,7 +64,6 @@ override _inline_check_required => sub {
 } if Moose->VERSION >= 1.9900;
 
 1;
-
 __END__
 =pod
 
@@ -69,7 +73,7 @@ MooseX::Attribute::Dependent::Meta::Role::Attribute
 
 =head1 VERSION
 
-version 1.0.1
+version 1.1.0
 
 =head1 AUTHOR
 

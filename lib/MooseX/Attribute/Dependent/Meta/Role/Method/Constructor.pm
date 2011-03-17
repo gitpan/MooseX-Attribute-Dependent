@@ -9,7 +9,7 @@
 #
 package MooseX::Attribute::Dependent::Meta::Role::Method::Constructor;
 BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::Method::Constructor::VERSION = '1.0.1';
+  $MooseX::Attribute::Dependent::Meta::Role::Method::Constructor::VERSION = '1.1.0';
 }
 
 use strict;
@@ -49,7 +49,7 @@ MooseX::Attribute::Dependent::Meta::Role::Method::Constructor
 
 =head1 VERSION
 
-version 1.0.1
+version 1.1.0
 
 =head1 AUTHOR
 

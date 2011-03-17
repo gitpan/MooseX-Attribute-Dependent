@@ -9,43 +9,38 @@
 #
 package MooseX::Attribute::Dependent;
 BEGIN {
-  $MooseX::Attribute::Dependent::VERSION = '1.0.1';
+  $MooseX::Attribute::Dependent::VERSION = '1.1.0';
 }
 # ABSTRACT: Restrict attributes based on values of other attributes
 use Moose ();
 use Moose::Exporter;
 use Moose::Util::MetaRole;
 use MooseX::Attribute::Dependency;
+use MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass;
+use MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole;
 
 
 Moose::Exporter->setup_import_methods(
-    as_is => &get_dependencies
+    as_is => &get_dependencies,
+    class_metaroles => {
+        (Moose->VERSION >= 1.9900
+            ? (class =>
+                ['MooseX::Attribute::Dependent::Meta::Role::Class'])
+            : (constructor =>
+                ['MooseX::Attribute::Dependent::Meta::Role::Method::Constructor'])),
+        attribute => ['MooseX::Attribute::Dependent::Meta::Role::Attribute'],
+    },
+    role_metaroles => {
+        attribute => ['MooseX::Attribute::Dependent::Meta::Role::Attribute'],
+        application_to_class => ['MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass'],
+        application_to_role => ['MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole'],
+        
+    },
 );
 
 sub get_dependencies {
     my $meta = Class::MOP::Class->initialize('MooseX::Attribute::Dependencies');
     return [ map { $_->body } $meta->get_all_methods ];
-}
-
-sub init_meta {
-    shift;
-    my %args = @_;
-
-    Moose->init_meta(%args);
-
-    Moose::Util::MetaRole::apply_metaroles(
-        for             => $args{for_class},
-        class_metaroles => {
-            (Moose->VERSION >= 1.9900
-                ? (class =>
-                    ['MooseX::Attribute::Dependent::Meta::Role::Class'])
-                : (constructor =>
-                    ['MooseX::Attribute::Dependent::Meta::Role::Method::Constructor'])),
-            attribute => ['MooseX::Attribute::Dependent::Meta::Role::Attribute'],
-        },
-    );
-
-    return $args{for_class}->meta();
 }
 
 1;
@@ -60,7 +55,7 @@ MooseX::Attribute::Dependent - Restrict attributes based on values of other attr
 
 =head1 VERSION
 
-version 1.0.1
+version 1.1.0
 
 =head1 SYNOPSIS
 

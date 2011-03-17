@@ -10,6 +10,8 @@ my %module_build_args = (
     'File::Find' => '0',
     'File::Temp' => '0',
     'Module::Build' => '0.3601',
+    'MyInterRole' => '0',
+    'MyRole' => '0',
     'Test::More' => '0.88',
     'Test::Most' => '0.23'
   },
@@ -21,7 +23,7 @@ my %module_build_args = (
     'Moritz Onken'
   ],
   'dist_name' => 'MooseX-Attribute-Dependent',
-  'dist_version' => '1.0.1',
+  'dist_version' => '1.1.0',
   'license' => 'bsd',
   'module_name' => 'MooseX::Attribute::Dependent',
   'recommends' => {},
