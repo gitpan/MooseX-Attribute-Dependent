@@ -9,7 +9,7 @@
 #
 package MooseX::Attribute::Dependent::Meta::Role::Method::Accessor;
 BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::Method::Accessor::VERSION = '1.1.0';
+  $MooseX::Attribute::Dependent::Meta::Role::Method::Accessor::VERSION = '1.1.1';
 }
 use strict;
 use warnings;
@@ -43,7 +43,7 @@ MooseX::Attribute::Dependent::Meta::Role::Method::Accessor
 
 =head1 VERSION
 
-version 1.1.0
+version 1.1.1
 
 =head1 AUTHOR
 

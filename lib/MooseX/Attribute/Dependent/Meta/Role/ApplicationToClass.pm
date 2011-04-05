@@ -9,7 +9,7 @@
 #
 package MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass;
 BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass::VERSION = '1.1.0';
+  $MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass::VERSION = '1.1.1';
 }
 use Moose::Role;
 
@@ -27,7 +27,6 @@ around apply => sub {
                     ['MooseX::Attribute::Dependent::Meta::Role::Class'])
                 : (constructor =>
                     ['MooseX::Attribute::Dependent::Meta::Role::Method::Constructor'])),
-            attribute => ['MooseX::Attribute::Dependent::Meta::Role::Attribute'],
         });
     $self->$orig( $role, $class );
 };
@@ -43,7 +42,7 @@ MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass
 
 =head1 VERSION
 
-version 1.1.0
+version 1.1.1
 
 =head1 AUTHOR
 

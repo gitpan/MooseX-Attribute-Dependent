@@ -9,7 +9,7 @@
 #
 package MooseX::Attribute::Dependent::Meta::Role::Attribute;
 BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::Attribute::VERSION = '1.1.0';
+  $MooseX::Attribute::Dependent::Meta::Role::Attribute::VERSION = '1.1.1';
 }
 use strict;
 use warnings;
@@ -17,7 +17,6 @@ use Moose::Role;
 
 has dependency => ( predicate => 'has_dependency', is => 'ro' );
 
-sub initialize_instance_slot {}
 before initialize_instance_slot => sub {
     my ( $self, $meta_instance, $instance, $params ) = @_;
     return
@@ -28,7 +27,6 @@ before initialize_instance_slot => sub {
         $dep->constraint->( $self->init_arg, $params, @{ $dep->parameters } ) );
 };
 
-sub accessor_metaclass { 'Moose::Meta::Method::Accessor' }
 around accessor_metaclass => sub { 
     my ($orig) = (shift);
     my $class = shift->$orig(@_);
@@ -40,7 +38,6 @@ around accessor_metaclass => sub {
     
 } if Moose->VERSION < 1.9900;
 
-sub _inline_check_required {}
 around _inline_check_required => sub {
     my $orig = shift;
     my $attr = shift;
@@ -73,7 +70,7 @@ MooseX::Attribute::Dependent::Meta::Role::Attribute
 
 =head1 VERSION
 
-version 1.1.0
+version 1.1.1
 
 =head1 AUTHOR
 

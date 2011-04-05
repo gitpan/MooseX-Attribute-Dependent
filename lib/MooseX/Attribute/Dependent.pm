@@ -9,7 +9,7 @@
 #
 package MooseX::Attribute::Dependent;
 BEGIN {
-  $MooseX::Attribute::Dependent::VERSION = '1.1.0';
+  $MooseX::Attribute::Dependent::VERSION = '1.1.1';
 }
 # ABSTRACT: Restrict attributes based on values of other attributes
 use Moose ();
@@ -31,7 +31,11 @@ Moose::Exporter->setup_import_methods(
         attribute => ['MooseX::Attribute::Dependent::Meta::Role::Attribute'],
     },
     role_metaroles => {
-        attribute => ['MooseX::Attribute::Dependent::Meta::Role::Attribute'],
+        (Moose->VERSION >= 1.9900
+            ? (applied_attribute =>
+                ['MooseX::Attribute::Dependent::Meta::Role::Attribute'])
+            : ()),
+        role => ['MooseX::Attribute::Dependent::Meta::Role::Role'],
         application_to_class => ['MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass'],
         application_to_role => ['MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole'],
         
@@ -55,7 +59,7 @@ MooseX::Attribute::Dependent - Restrict attributes based on values of other attr
 
 =head1 VERSION
 
-version 1.1.0
+version 1.1.1
 
 =head1 SYNOPSIS
 

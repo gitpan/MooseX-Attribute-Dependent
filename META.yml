@@ -3,17 +3,11 @@ abstract: 'Restrict attributes based on values of other attributes'
 author:
   - 'Moritz Onken'
 build_requires:
-  File::Find: 0
-  File::Temp: 0
   Module::Build: 0.3601
-  MyInterRole: 0
-  MyRole: 0
-  Test::More: 0.88
-  Test::Most: 0.23
 configure_requires:
   Module::Build: 0.3601
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110580'
+generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930'
 license: bsd
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -22,42 +16,53 @@ name: MooseX-Attribute-Dependent
 provides:
   MooseX::Attribute::Dependencies:
     file: lib/MooseX/Attribute/Dependency.pm
-    version: v1.1.0
+    version: v1.1.1
   MooseX::Attribute::Dependency:
     file: lib/MooseX/Attribute/Dependency.pm
-    version: v1.1.0
+    version: v1.1.1
   MooseX::Attribute::Dependent:
     file: lib/MooseX/Attribute/Dependent.pm
-    version: v1.1.0
+    version: v1.1.1
   MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/ApplicationToClass.pm
-    version: v1.1.0
+    version: v1.1.1
   MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/ApplicationToRole.pm
-    version: v1.1.0
+    version: v1.1.1
   MooseX::Attribute::Dependent::Meta::Role::Attribute:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Attribute.pm
-    version: v1.1.0
+    version: v1.1.1
   MooseX::Attribute::Dependent::Meta::Role::Class:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Class.pm
-    version: v1.1.0
+    version: v1.1.1
+  MooseX::Attribute::Dependent::Meta::Role::Composite:
+    file: lib/MooseX/Attribute/Dependent/Meta/Role/Composite.pm
+    version: v1.1.1
   MooseX::Attribute::Dependent::Meta::Role::Method::Accessor:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Method/Accessor.pm
-    version: v1.1.0
+    version: v1.1.1
   MooseX::Attribute::Dependent::Meta::Role::Method::Constructor:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Method/Constructor.pm
-    version: v1.1.0
+    version: v1.1.1
+  MooseX::Attribute::Dependent::Meta::Role::Role:
+    file: lib/MooseX/Attribute/Dependent/Meta/Role/Role.pm
+    version: v1.1.1
 requires:
+  File::Find: 0
+  File::Temp: 0
+  Module::Build: 0.3601
   Moose: 0
   Moose::Exporter: 0
   Moose::Role: 0
   Moose::Util::MetaRole: 0
+  Test::More: 0.88
+  Test::Most: 0.23
   overload: 0
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=MooseX-Attribute-Dependent
   homepage: http://search.cpan.org/dist/MooseX-Attribute-Dependent/
   repository: git://github.com/monken/p5-moosex-attribute-dependent.git
-version: 1.1.0
+version: 1.1.1
 x_Dist_Zilla:
   plugins:
     -
@@ -67,7 +72,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::CompileTests
       name: '@Filter/CompileTests'
-      version: 1.103030
+      version: 1.110930
     -
       class: Dist::Zilla::Plugin::HasVersionTests
       name: '@Filter/HasVersionTests'
@@ -103,10 +108,6 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ManifestSkip
       name: '@Filter/ManifestSkip'
-      version: 4.200004
-    -
-      class: Dist::Zilla::Plugin::AutoPrereqs
-      name: '@Filter/AutoPrereqs'
       version: 4.200004
     -
       class: Dist::Zilla::Plugin::ExtraTests
@@ -211,6 +212,14 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@Filter/UploadToCPAN'
+      version: 4.200004
+    -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: runtime
+          type: requires
+      name: Prereqs
       version: 4.200004
     -
       class: Dist::Zilla::Plugin::FinderCode

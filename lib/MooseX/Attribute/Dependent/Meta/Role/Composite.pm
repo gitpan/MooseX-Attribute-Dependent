@@ -7,27 +7,30 @@
 #
 #   The (three-clause) BSD License
 #
-package MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole;
+package MooseX::Attribute::Dependent::Meta::Role::Composite;
 BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole::VERSION = '1.1.1';
+  $MooseX::Attribute::Dependent::Meta::Role::Composite::VERSION = '1.1.1';
 }
 use Moose::Role;
 
-around apply => sub {
-    my $orig  = shift;
-    my $self  = shift;
-    my $role  = shift;
-    my $class = shift;
-    $class =
-      Moose::Util::MetaRole::apply_metaroles(
-        for            => $class,
+around apply_params => sub {
+    my $orig = shift;
+    my $self = shift;
+
+    $self->$orig(@_);
+
+    $self = Moose::Util::MetaRole::apply_metaroles(
+        for            => $self,
         role_metaroles => {
             application_to_class => ['MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass'],
             application_to_role => ['MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole'],
+        },
+    );
 
-        },);
-    $self->$orig( $role, $class );
+    return $self;
 };
+
+no Moose::Role;
 
 1;
 
@@ -36,7 +39,7 @@ __END__
 
 =head1 NAME
 
-MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole
+MooseX::Attribute::Dependent::Meta::Role::Composite
 
 =head1 VERSION
 
