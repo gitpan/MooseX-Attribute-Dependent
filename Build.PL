@@ -17,7 +17,7 @@ my %module_build_args = (
     'Moritz Onken'
   ],
   'dist_name' => 'MooseX-Attribute-Dependent',
-  'dist_version' => '1.1.1',
+  'dist_version' => '1.1.2',
   'license' => 'bsd',
   'module_name' => 'MooseX::Attribute::Dependent',
   'recommends' => {},

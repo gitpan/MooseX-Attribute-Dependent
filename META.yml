@@ -7,7 +7,7 @@ build_requires:
 configure_requires:
   Module::Build: 0.3601
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930'
+generated_by: 'Dist::Zilla version 4.200018, CPAN::Meta::Converter version 2.112150'
 license: bsd
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -16,37 +16,37 @@ name: MooseX-Attribute-Dependent
 provides:
   MooseX::Attribute::Dependencies:
     file: lib/MooseX/Attribute/Dependency.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependency:
     file: lib/MooseX/Attribute/Dependency.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependent:
     file: lib/MooseX/Attribute/Dependent.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/ApplicationToClass.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependent::Meta::Role::ApplicationToRole:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/ApplicationToRole.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependent::Meta::Role::Attribute:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Attribute.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependent::Meta::Role::Class:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Class.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependent::Meta::Role::Composite:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Composite.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependent::Meta::Role::Method::Accessor:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Method/Accessor.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependent::Meta::Role::Method::Constructor:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Method/Constructor.pm
-    version: v1.1.1
+    version: v1.1.2
   MooseX::Attribute::Dependent::Meta::Role::Role:
     file: lib/MooseX/Attribute/Dependent/Meta/Role/Role.pm
-    version: v1.1.1
+    version: v1.1.2
 requires:
   File::Find: 0
   File::Temp: 0
@@ -62,13 +62,13 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=MooseX-Attribute-Dependent
   homepage: http://search.cpan.org/dist/MooseX-Attribute-Dependent/
   repository: git://github.com/monken/p5-moosex-attribute-dependent.git
-version: 1.1.1
+version: 1.1.2
 x_Dist_Zilla:
   plugins:
     -
       class: Dist::Zilla::Plugin::GatherDir
       name: '@Filter/GatherDir'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::CompileTests
       name: '@Filter/CompileTests'
@@ -88,11 +88,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PodCoverageTests
       name: '@Filter/PodCoverageTests'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@Filter/PodSyntaxTests'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::ReportVersions::Tiny
       name: '@Filter/ReportVersions::Tiny'
@@ -100,27 +100,27 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@Filter/PruneCruft'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::PruneFiles
       name: '@Filter/PruneFiles'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::ManifestSkip
       name: '@Filter/ManifestSkip'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::ExtraTests
       name: '@Filter/ExtraTests'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: '@Filter/NextRelease'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::PkgVersion
       name: '@Filter/PkgVersion'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::PodWeaver
       name: '@Filter/PodWeaver'
@@ -132,15 +132,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@Filter/ExecDir'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::ShareDir
       name: '@Filter/ShareDir'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::Bugtracker
       name: '@Filter/Bugtracker'
-      version: 1.102670
+      version: 1.111080
     -
       class: Dist::Zilla::Plugin::Homepage
       name: '@Filter/Homepage'
@@ -148,39 +148,39 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Repository
       name: '@Filter/Repository'
-      version: 0.17
+      version: 0.18
     -
       class: Dist::Zilla::Plugin::MetaProvides::Package
       name: '@Filter/MetaProvides::Package'
-      version: 1.12044908
+      version: 1.12060501
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@Filter/MetaConfig'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::License
       name: '@Filter/License'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: '@Filter/MetaYAML'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@Filter/MetaJSON'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::ModuleBuild
       name: '@Filter/ModuleBuild'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::Readme
       name: '@Filter/Readme'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::Manifest
       name: '@Filter/Manifest'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::CheckChangeLog
       name: '@Filter/CheckChangeLog'
@@ -188,31 +188,31 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@Filter/Git::Check'
-      version: 1.110500
+      version: 1.112070
     -
       class: Dist::Zilla::Plugin::Git::Commit
       name: '@Filter/Git::Commit'
-      version: 1.110500
+      version: 1.112070
     -
       class: Dist::Zilla::Plugin::Git::CommitBuild
       name: '@Filter/Git::CommitBuild'
-      version: 1.110500
+      version: 1.112070
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@Filter/TagMaster'
-      version: 1.110500
+      version: 1.112070
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@Filter/TagRelease'
-      version: 1.110500
+      version: 1.112070
     -
       class: Dist::Zilla::Plugin::Git::Push
       name: '@Filter/Git::Push'
-      version: 1.110500
+      version: 1.112070
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@Filter/UploadToCPAN'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -220,25 +220,33 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: Prereqs
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 4.200004
+      version: 4.200018
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':IncModules'
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 4.200004
+      version: 4.200018
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 4.200004
+      version: 4.200018
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':MainModule'
+      version: 4.200018
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
       is_trial: 0
-    version: 4.200004
+    version: 4.200018

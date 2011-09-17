@@ -8,8 +8,8 @@
 #   The (three-clause) BSD License
 #
 package MooseX::Attribute::Dependent::Meta::Role::Attribute;
-BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::Attribute::VERSION = '1.1.1';
+{
+  $MooseX::Attribute::Dependent::Meta::Role::Attribute::VERSION = '1.1.2';
 }
 use strict;
 use warnings;
@@ -70,7 +70,7 @@ MooseX::Attribute::Dependent::Meta::Role::Attribute
 
 =head1 VERSION
 
-version 1.1.1
+version 1.1.2
 
 =head1 AUTHOR
 

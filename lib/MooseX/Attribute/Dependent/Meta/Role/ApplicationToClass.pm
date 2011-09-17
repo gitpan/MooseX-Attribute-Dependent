@@ -8,8 +8,8 @@
 #   The (three-clause) BSD License
 #
 package MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass;
-BEGIN {
-  $MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass::VERSION = '1.1.1';
+{
+  $MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass::VERSION = '1.1.2';
 }
 use Moose::Role;
 
@@ -42,7 +42,7 @@ MooseX::Attribute::Dependent::Meta::Role::ApplicationToClass
 
 =head1 VERSION
 
-version 1.1.1
+version 1.1.2
 
 =head1 AUTHOR
 

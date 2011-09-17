@@ -8,8 +8,8 @@
 #   The (three-clause) BSD License
 #
 package MooseX::Attribute::Dependent;
-BEGIN {
-  $MooseX::Attribute::Dependent::VERSION = '1.1.1';
+{
+  $MooseX::Attribute::Dependent::VERSION = '1.1.2';
 }
 # ABSTRACT: Restrict attributes based on values of other attributes
 use Moose ();
@@ -59,7 +59,7 @@ MooseX::Attribute::Dependent - Restrict attributes based on values of other attr
 
 =head1 VERSION
 
-version 1.1.1
+version 1.1.2
 
 =head1 SYNOPSIS
 
